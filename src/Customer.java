@@ -3,55 +3,73 @@ import java.lang.*;
 import java.util.*;
 
 class Customer {
+
+    public static final String NEW_LINE = "\n";
+    public static final String TAB = "\t";
     private String name;
-    private Vector rentals = new Vector();
-    public Customer (String newname){
-        name = newname;
-    };
-    public void addRental(Rental arg) {
-        rentals.addElement(arg);
-    };
-    public String getName (){
-        return name;
-    };
+    private List<Rental> rentals;
+
+    public Customer(String name) {
+        this.name = name;
+        this.rentals = new ArrayList<>();
+    }
+
+    public void addRental(Rental rental) {
+        rentals.add(rental);
+        System.out.println(rental.getCharge());
+    }
+
     public String statement() {
-        double totalAmount = 0;
-        int frequentRenterPoints = 0;
-        Enumeration enum_rentals = rentals.elements();
-        String result = "Rental Record for " + this.getName() + "\n";
-        result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
 
-        while (enum_rentals.hasMoreElements()) {
-            double thisAmount = 0;
-            Rental each = (Rental) enum_rentals.nextElement();
-            //determine amounts for each line
-            // add frequent renter points
-            //show figures for this rental
-            result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + String.valueOf(thisAmount) + "\n";
+        StringBuilder builder = new StringBuilder();
+        builder.append("Rental Record for ");
+        builder.append(this.name);
+        builder.append(NEW_LINE);
 
+        builder.append(TAB);
+        builder.append("Title");
+        builder.append(TAB);
+        builder.append(TAB);
+        builder.append("Days");
+        builder.append(TAB);
+        builder.append("Amount");
+
+        for (Rental rental : rentals){
+
+            builder.append(NEW_LINE);
+            builder.append(rental.getMovie().getTitle());
+            builder.append(TAB);
+            builder.append(TAB);
+            builder.append(rental.getDaysRented());
+            builder.append(TAB);
+            builder.append(rental.getCharge());
         }
         //add footer lines
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
-        return result;
+
+        builder.append(NEW_LINE);
+        builder.append("Amount owed is: ");
+        builder.append(getTotalCharge());
+        builder.append(NEW_LINE);
+        builder.append("You earned ");
+        builder.append(getTotalFrequentRenterPoints());
+        builder.append(" frequent renter points");
+        builder.append(NEW_LINE);
+
+        return builder.toString();
     }
 
     private double getTotalCharge() {
         double result = 0;
-        Enumeration enum_rentals = rentals.elements();
-        while (enum_rentals.hasMoreElements()) {
-            Rental each = (Rental) enum_rentals.nextElement();
-            result += each.getCharge();
+        for (Rental rental: rentals) {
+            result = result + rental.getCharge();
         }
         return result;
     }
 
     private int getTotalFrequentRenterPoints(){
         int result = 0;
-        Enumeration enum_rentals = rentals.elements();
-        while (enum_rentals.hasMoreElements()) {
-            Rental each = (Rental) enum_rentals.nextElement();
-            result += each.getFrequentRenterPoints();
+        for (Rental rental: rentals) {
+            result = result + rental.getFrequentRenterPoints();
         }
         return result;
     }

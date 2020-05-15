@@ -14,12 +14,23 @@ public class Movie {
     public int getPriceCode() {
         return priceCode;
     }
-    public void setPriceCode(int arg) {
-        HashMap<Integer,PriceCode> movieprice = new HashMap<>();
-        movieprice.put(REGULAR,()-> price= new Price_Regular());
-        movieprice.put(CHILDRENS,()-> price= new Price_Children());
-        movieprice.put(NEW_RELEASE,()-> price= new Price_relas());
+
+        public void setPriceCode(int arg) {
+
+        if (arg == REGULAR) {
+            price = new Price_Regular();
+        }
+        if (arg == CHILDRENS){
+            price = new Price_Children();
+        }
+        if (arg == NEW_RELEASE){
+            price = new Price_relas();
+        }
+
+
     }
+
+
     public String getTitle (){
         return title;
     };
@@ -27,8 +38,8 @@ public class Movie {
     private static interface PriceCode {
         public void gibAn();
     }
-    public double getCharge(int daysRented) {
-        return price.getCharge(daysRented);
+    public double getCharge(int days_rented) {
+        return price.getCharge(days_rented);
     }
 
     public int getFrequentRenterPoints( int daysRented) {

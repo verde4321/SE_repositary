@@ -1,16 +1,21 @@
-class Rental {
+public class Rental {
+
     private Movie movie;
-    private int daysRented;
+    private int days_rented;
+
     public Rental(Movie newmovie, int newdaysRented) {
         movie = newmovie;
-        daysRented = newdaysRented;
+        days_rented = newdaysRented;
     }
+
     public int getDaysRented() {
-        return daysRented;
+        return days_rented;
     }
+
     public Movie getMovie() {
         return movie;
     }
+
     public double getCharge() {
         return getMovie().getCharge(getDaysRented());
     }
