@@ -1,8 +1,4 @@
 public class Price_Children implements Price {
-    @Override
-    public int getCode() {
-        return Movie.CHILDRENS;
-    }
 
     @Override
     public double getCharge(int days_rented) {

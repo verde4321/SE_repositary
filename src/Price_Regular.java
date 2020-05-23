@@ -1,8 +1,4 @@
 public class Price_Regular implements Price {
-    @Override
-    public int getCode() {
-        return Movie.REGULAR;
-    }
 
     @Override
     public double getCharge(int days_rented) {
