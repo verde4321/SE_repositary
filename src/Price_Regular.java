@@ -11,7 +11,7 @@ public class Price_Regular implements Price {
     }
 
     @Override
-    public int getFrequentRenterPoints(int days_rented) {
+    public int getFrequentRenterPoints() {
         return 1;
     }
 }

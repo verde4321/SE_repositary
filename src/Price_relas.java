@@ -10,7 +10,7 @@ public class Price_relas implements Price {
     }
 
     @Override
-    public int getFrequentRenterPoints(int days_rented) {
+    public int getFrequentRenterPoints() {
         return 0;
     }
 }
