@@ -1,3 +1,5 @@
+package Main_Program;
+
 public class Price_Regular implements Price {
 
     @Override

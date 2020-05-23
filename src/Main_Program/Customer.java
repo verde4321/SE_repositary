@@ -1,3 +1,4 @@
+package Main_Program;
 
 import java.lang.*;
 import java.util.*;
@@ -22,7 +23,7 @@ class Customer {
     public String statement() {
 
         StringBuilder builder = new StringBuilder();
-        builder.append("Rental Record for ");
+        builder.append("Main_Program.Rental Record for ");
         builder.append(this.name);
         builder.append(NEW_LINE);
 

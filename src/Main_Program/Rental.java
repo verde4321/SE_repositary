@@ -1,3 +1,5 @@
+package Main_Program;
+
 public class Rental {
 
     private final Movie movie;

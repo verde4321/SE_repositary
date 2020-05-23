@@ -1,3 +1,5 @@
+package Main_Program;
+
 public class Price_Children implements Price {
 
     @Override

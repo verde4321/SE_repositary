@@ -1,4 +1,4 @@
-import java.util.HashMap;
+package Main_Program;
 
 public class Movie {
     private static final int CHILDRENS = 2;
