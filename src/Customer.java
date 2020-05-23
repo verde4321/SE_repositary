@@ -6,8 +6,8 @@ class Customer {
 
     public static final String NEW_LINE = "\n";
     public static final String TAB = "\t";
-    private String name;
-    private List<Rental> rentals;
+    private final String name;
+    private final List<Rental> rentals;
 
     public Customer(String name) {
         this.name = name;
