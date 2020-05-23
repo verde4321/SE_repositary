@@ -3,7 +3,7 @@ package Main_Program;
 import java.lang.*;
 import java.util.*;
 
-class Customer {
+public class Customer {
 
     public static final String NEW_LINE = "\n";
     public static final String TAB = "\t";
@@ -12,7 +12,7 @@ class Customer {
 
     public Customer(String name) {
         this.name = name;
-        this.rentals = new ArrayList<>();
+        this.rentals = new ArrayList<Rental>();
     }
 
     public void addRental(Rental rental) {
