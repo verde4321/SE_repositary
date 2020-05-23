@@ -29,13 +29,10 @@ public class Movie {
     }
 
 
-    public String getTitle (){
+    public String getTitle(){
         return title;
-    };
-
-    private static interface PriceCode {
-        public void gibAn();
     }
+
     public double getCharge(int days_rented) {
         return price.getCharge(days_rented);
     }
